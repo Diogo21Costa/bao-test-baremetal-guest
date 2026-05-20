@@ -159,7 +159,8 @@ wait_flag:
     mov x3, #SPSel_SP							
 	msr SPSEL, x3	
 
-    adr x1, _stack_base
+    adrp x1, _stack_base
+    add  x1, x1, :lo12:_stack_base
     ldr x2, =STACK_SIZE
     add x1, x1, x2
 #ifndef SINGLE_CORE
